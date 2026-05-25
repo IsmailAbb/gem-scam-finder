@@ -73,7 +73,6 @@ config/
 
 data/                 # gitignored — SQLite DB + screenshots
 tests/                # pytest tests + recorded fixtures
-scripts/              # one-off utilities (seed targets, etc.)
 ```
 
 ## Legal & ethical notes

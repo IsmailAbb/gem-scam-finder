@@ -1,20 +1,15 @@
-"""Load canonical targets from config/targets.yaml into the database.
-
-Run via `uv run gemscan init` (which also creates tables) or directly:
-    uv run python -m scripts.seed_targets
-"""
-
-from pathlib import Path
+"""Seed canonical targets from config/targets.yaml into the database."""
 
 import yaml
 
 from gemscan.db.models import Target
 from gemscan.db.session import SessionLocal
+from gemscan.settings import ROOT
 
-TARGETS_FILE = Path(__file__).resolve().parents[1] / "config" / "targets.yaml"
+TARGETS_FILE = ROOT / "config" / "targets.yaml"
 
 
-def seed() -> int:
+def seed_targets() -> int:
     """Insert any new canonical targets into the DB. Idempotent. Returns count added."""
     with TARGETS_FILE.open(encoding="utf-8") as f:
         data = yaml.safe_load(f)
@@ -35,8 +30,3 @@ def seed() -> int:
             added += 1
         session.commit()
     return added
-
-
-if __name__ == "__main__":
-    n = seed()
-    print(f"Added {n} new target(s).")

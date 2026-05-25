@@ -19,12 +19,12 @@ def version() -> None:
 @app.command()
 def init() -> None:
     """Create the database, ensure data directories exist, and seed canonical targets."""
+    from gemscan.db.seed import seed_targets
     from gemscan.db.session import init_db
-    from scripts.seed_targets import seed
 
     init_db()
-    seed()
-    typer.echo("Database initialized and targets seeded.")
+    added = seed_targets()
+    typer.echo(f"Database initialized. Added {added} target(s).")
 
 
 @app.command()

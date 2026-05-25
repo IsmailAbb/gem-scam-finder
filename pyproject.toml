@@ -1,0 +1,63 @@
+[project]
+name = "gemscan"
+version = "0.1.0"
+description = "Detect and track websites impersonating the Grand Egyptian Museum"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "GEM Scam Finder contributors" }]
+keywords = ["phishing", "brand-protection", "anti-scam", "osint", "egypt", "tourism"]
+
+dependencies = [
+    # CLI
+    "typer>=0.12",
+    # Settings / config
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "pyyaml>=6.0",
+    # Database
+    "sqlalchemy>=2.0",
+    # HTTP / scraping
+    "httpx>=0.27",
+    "playwright>=1.45",
+    "beautifulsoup4>=4.12",
+    # Discovery
+    "dnstwist>=20240806",
+    "python-whois>=0.9.4",
+    "dnspython>=2.6",
+    # AI
+    "anthropic>=0.40",
+    # Web app
+    "fastapi>=0.111",
+    "uvicorn[standard]>=0.30",
+    "jinja2>=3.1",
+    "python-multipart>=0.0.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.5",
+]
+
+[project.scripts]
+gemscan = "gemscan.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gemscan"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

@@ -1,0 +1,31 @@
+Subject: Google Ads policy violation — fraudulent advertiser impersonating Grand Egyptian Museum
+
+To Google Ads Trust & Safety,
+
+I am reporting a Google Ads advertiser running ads under the search query
+"{{ search_query }}" that direct users to **{{ domain }}**, a site impersonating
+the Grand Egyptian Museum to collect payment for fake tickets.
+
+This violates Google Ads' Misrepresentation policy (specifically: "Unacceptable
+Business Practices" and impersonation of a recognized cultural institution).
+
+Evidence (captured {{ captured_at }}):
+
+- Screenshot of the ad and landing page: attached / {{ screenshot_url }}
+- Ad position and search query observed: {{ search_query }}
+- Landing-page final URL: {{ final_url }}
+- Domain registered: {{ registration_date }} ({{ days_old }} days ago)
+
+Indicators of impersonation:
+{% for item in evidence_bullets %}
+- {{ item }}
+{% endfor %}
+
+The canonical Grand Egyptian Museum site is {{ canonical_domain }}. The reported
+advertiser is not authorized by the museum.
+
+Please review and suspend the offending advertiser account.
+
+Thank you,
+{{ reporter_name }}
+{{ reporter_email }}

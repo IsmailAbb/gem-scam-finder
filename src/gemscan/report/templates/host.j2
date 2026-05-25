@@ -1,0 +1,28 @@
+Subject: Abuse report — phishing site impersonating Grand Egyptian Museum on your infrastructure ({{ domain }})
+
+To the {{ host_name }} abuse team,
+
+The domain **{{ domain }}**, currently hosted on your infrastructure
+(IP: {{ ip_address }}, ASN: {{ asn }}), is impersonating the Grand Egyptian
+Museum to defraud tourists purchasing tickets.
+
+Evidence (captured {{ captured_at }}):
+
+- Screenshot of the landing page: attached / {{ screenshot_url }}
+- Final URL after redirects: {{ final_url }}
+- Redirect chain: {{ redirect_chain | join(' -> ') }}
+- Domain registered: {{ registration_date }} ({{ days_old }} days ago)
+
+Indicators of impersonation:
+{% for item in evidence_bullets %}
+- {{ item }}
+{% endfor %}
+
+The canonical Grand Egyptian Museum site is {{ canonical_domain }}. The reported
+domain is not affiliated with the museum.
+
+Per your acceptable-use policy, please investigate and remove this content.
+
+Thank you,
+{{ reporter_name }}
+{{ reporter_email }}

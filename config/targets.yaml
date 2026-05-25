@@ -1,0 +1,36 @@
+# Canonical Grand Egyptian Museum domains we protect against impersonation.
+#
+# TODO: verify these against the official sources (Ministry of Tourism and
+# Antiquities + the museum's own communications) before going live. The
+# placeholders below are best-effort but should not be trusted blindly.
+
+targets:
+  - domain: grandegyptianmuseum.org
+    display_name: Grand Egyptian Museum (official)
+    notes: Placeholder — verify this is the canonical domain.
+
+  - domain: visit-gem.com
+    display_name: Visit GEM (official ticketing)
+    notes: Placeholder — verify before relying on it.
+
+# Tourist-intent search queries the SERP scraper will run.
+# Scam sites often outrank the real museum on these, so SERP results
+# are a high-signal discovery source.
+search_queries:
+  - grand egyptian museum tickets
+  - gem cairo tickets
+  - giza museum tickets online
+  - grand egyptian museum book tickets
+  - gem tickets official
+  - متحف مصري كبير تذاكر
+  - حجز تذاكر المتحف المصري الكبير
+
+# Keywords commonly stuffed into scam domains. Used as additional dnstwist seeds.
+keywords:
+  - tickets
+  - booking
+  - official
+  - museum
+  - cairo
+  - giza
+  - egypt

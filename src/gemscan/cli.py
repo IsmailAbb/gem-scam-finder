@@ -5,7 +5,7 @@ import typer
 from gemscan import __version__
 
 app = typer.Typer(
-    help="GEM Scam Finder — detect sites impersonating the Grand Egyptian Museum.",
+    help="GEM Scam Finder: detect sites impersonating the Grand Egyptian Museum.",
     no_args_is_help=True,
 )
 
@@ -40,8 +40,14 @@ def discover() -> None:
 
 @app.command()
 def enrich() -> None:
-    """Gather WHOIS, DNS, HTTP probe, and screenshot for pending candidates."""
-    typer.echo("TODO: implement enrichment pipeline")
+    """Probe pending candidates and capture screenshots into data/snapshots/."""
+    from gemscan.enrich.pipeline import enrich_pending
+
+    result = enrich_pending()
+    typer.echo(
+        f"Enrichment complete. {result['captured']}/{result['total']} captured, "
+        f"{result['dead']} dead."
+    )
 
 
 @app.command()

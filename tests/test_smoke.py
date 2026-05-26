@@ -28,4 +28,4 @@ def test_all_packages_importable():
     from gemscan.api import admin, main, public  # noqa: F401
     from gemscan.db import models, session  # noqa: F401
     from gemscan.discovery import ct_logs, dnstwist_gen, newdomains, pipeline, serp  # noqa: F401
-    from gemscan.enrich import dns_lookup, http_probe, screenshot, scrape, whois_lookup  # noqa: F401
+    from gemscan.enrich import dns_lookup, http_probe, pipeline as enrich_pipeline, screenshot, scrape, whois_lookup  # noqa: F401

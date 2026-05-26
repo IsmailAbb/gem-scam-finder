@@ -23,5 +23,13 @@ class Settings(BaseSettings):
     escalation_model: str = "claude-opus-4-7"
     review_required_threshold: float = 0.7
 
+    user_agent: str = (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    )
+    http_timeout_seconds: float = 15.0
+    playwright_nav_timeout_ms: int = 30_000
+    playwright_idle_timeout_ms: int = 10_000
+
 
 settings = Settings()

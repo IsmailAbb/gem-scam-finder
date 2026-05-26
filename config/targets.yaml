@@ -1,36 +1,51 @@
-# Canonical Grand Egyptian Museum domains we protect against impersonation.
+# Canonical Grand Egyptian Museum domains. These are the seeds dnstwist
+# permutes from — adding an unverified domain here makes the whole
+# pipeline less trustworthy, since we'd be permuting the wrong string
+# and treating copies of *that* as benign.
 #
-# TODO: verify these against the official sources (Ministry of Tourism and
-# Antiquities + the museum's own communications) before going live. The
-# placeholders below are best-effort but should not be trusted blindly.
+# Add a new entry only when you can answer YES to all three:
+#   1. Is this the actual official GEM domain (or authorized partner)?
+#   2. Would I confidently send a tourist here to buy tickets?
+#   3. Can I cite an authoritative source confirming it?
+#
+# NOTE: GEM (Giza, opened 2025) is a different institution from the
+# Egyptian Museum (Tahrir Square, opened 1902). Do not mix them.
 
 targets:
-  - domain: grandegyptianmuseum.org
-    display_name: Grand Egyptian Museum (official)
-    notes: Placeholder — verify this is the canonical domain.
+  - domain: tickets.gem.eg
+    display_name: GEM official ticketing portal
+    notes: Confirmed canonical 2026-05-26.
 
-  - domain: visit-gem.com
-    display_name: Visit GEM (official ticketing)
-    notes: Placeholder — verify before relying on it.
-
-# Tourist-intent search queries the SERP scraper will run.
-# Scam sites often outrank the real museum on these, so SERP results
-# are a high-signal discovery source.
+# Tourist-intent search queries the SERP scraper will run when it
+# comes online in Milestone 2. Scam sites often outrank the real
+# museum on these, so SERP is the primary discovery source for
+# brand-impersonators (paid Google Ads) that dnstwist cannot catch.
 search_queries:
   - grand egyptian museum tickets
   - gem cairo tickets
+  - gem giza tickets
   - giza museum tickets online
   - grand egyptian museum book tickets
   - gem tickets official
   - متحف مصري كبير تذاكر
   - حجز تذاكر المتحف المصري الكبير
 
-# Keywords commonly stuffed into scam domains. Used as additional dnstwist seeds.
+# CT-log search patterns. The crt.sh API accepts SQL LIKE wildcards.
+# Used by the discovery/ct_logs module in Milestone 2.
+ct_patterns:
+  - "%grand%egyptian%museum%"
+  - "%grandegyptian%"
+  - "%gem%cairo%tickets%"
+  - "%gem%giza%tickets%"
+
+# Generic keywords used to filter the daily new-domains feed
+# (Milestone 2). Kept loose — we'd rather over-fetch and filter
+# in classification than miss live scams.
 keywords:
-  - tickets
-  - booking
-  - official
-  - museum
-  - cairo
-  - giza
-  - egypt
+  - grandegyptianmuseum
+  - egyptianmuseum
+  - gemtickets
+  - gemcairo
+  - gemgiza
+  - giza-museum
+  - cairomuseum

@@ -1,0 +1,31 @@
+# Confirmed scam domains impersonating the Grand Egyptian Museum.
+# These get loaded straight into the DB as Candidate rows with a
+# pre-tagged "known_scam" flag so they:
+#
+#   1. Flow through enrich → classify alongside discovered candidates,
+#      letting us compare Claude's verdict to ground truth (calibration).
+#   2. Appear in tests/fixtures/ as canonical positives for regression
+#      tests on the classifier.
+#   3. Land on the public database from day one — useful even before
+#      the discovery pipeline has produced its own catches.
+#
+# Add a new entry only when you have:
+#   - First-hand evidence (screenshot, paid-ad URL with tracking params,
+#     copied logo/checkout flow, victim report, etc.).
+#   - Enough confidence to publicly accuse the operator of fraud.
+# Anything weaker than that belongs in the normal pipeline, not here.
+
+known_scams:
+  - domain: grandimuseum.org
+    discovered: 2026-05-26
+    discovery_context: |
+      Appeared as a sponsored Google Ads result for the search
+      "grand egyptian museum tickets" — full URL included gad_campaignid,
+      gclid, and gbraid tracking parameters confirming paid placement.
+    impersonation_style: |
+      Brand-name shortening with character insertion: drops "egyptian"
+      and inserts a stray "i" between "grand" and "museum", reading as
+      "grand i museum" or subliminally as the legitimate brand. Pure
+      brand-impersonation — not a typo, so dnstwist alone would not
+      catch this class of attack. SERP scraping is the right discovery
+      channel for paid-ad scams like this one.

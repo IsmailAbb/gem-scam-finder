@@ -23,14 +23,19 @@ def init() -> None:
     from gemscan.db.session import init_db
 
     init_db()
-    added = seed_targets()
-    typer.echo(f"Database initialized. Added {added} target(s).")
+    result = seed_targets()
+    typer.echo(
+        f"Database initialized. Targets: +{result['added']} -{result['removed']}."
+    )
 
 
 @app.command()
 def discover() -> None:
-    """Run the discovery pipeline (dnstwist + CT logs + SERP) to find candidate domains."""
-    typer.echo("TODO: implement discovery pipeline")
+    """Run the discovery pipeline (dnstwist for now) to find candidate domains."""
+    from gemscan.discovery.pipeline import run_discovery
+
+    added = run_discovery()
+    typer.echo(f"Discovery complete. {added} new candidate(s) added.")
 
 
 @app.command()

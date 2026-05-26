@@ -1,5 +1,5 @@
 # Canonical Grand Egyptian Museum domains. These are the seeds dnstwist
-# permutes from — adding an unverified domain here makes the whole
+# permutes from - adding an unverified domain here makes the whole
 # pipeline less trustworthy, since we'd be permuting the wrong string
 # and treating copies of *that* as benign.
 #
@@ -39,7 +39,7 @@ ct_patterns:
   - "%gem%giza%tickets%"
 
 # Generic keywords used to filter the daily new-domains feed
-# (Milestone 2). Kept loose — we'd rather over-fetch and filter
+# (Milestone 2). Kept loose - we'd rather over-fetch and filter
 # in classification than miss live scams.
 keywords:
   - grandegyptianmuseum

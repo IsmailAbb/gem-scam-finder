@@ -1,4 +1,4 @@
-"""Public, unauthenticated routes — the lookup page and the published-entries API."""
+"""Public, unauthenticated routes - the lookup page and the published-entries API."""
 
 from fastapi import APIRouter
 
@@ -8,7 +8,7 @@ router = APIRouter()
 @router.get("/")
 def index() -> dict:
     """Landing page. TODO: render index.html.j2 with summary stats."""
-    return {"status": "scaffolding — not implemented yet"}
+    return {"status": "scaffolding - not implemented yet"}
 
 
 @router.get("/lookup")
@@ -17,7 +17,7 @@ def lookup(domain: str) -> dict:
 
     TODO: query PublishedEntry by domain; return verdict + evidence summary.
     """
-    return {"domain": domain, "status": "scaffolding — not implemented yet"}
+    return {"domain": domain, "status": "scaffolding - not implemented yet"}
 
 
 @router.get("/domains")

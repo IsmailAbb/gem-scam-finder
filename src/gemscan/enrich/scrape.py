@@ -1,4 +1,4 @@
-"""Extract structured features from a saved HTML snapshot — used as cheap pre-classification signal."""
+"""Extract structured features from a saved HTML snapshot - used as cheap pre-classification signal."""
 
 
 def extract_features(html_path: str) -> dict:

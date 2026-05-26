@@ -14,10 +14,10 @@ def enrich_pending() -> dict[str, int]:
     For each candidate:
       1. HTTP-probe to find the working scheme + redirect chain.
       2. If the probe succeeded, render the final URL in Playwright.
-      3. Write a Snapshot row (always — even partial captures preserve evidence).
+      3. Write a Snapshot row (always - even partial captures preserve evidence).
       4. Advance the candidate to `enriched`.
 
-    Snapshots whose probe failed entirely (no scheme worked) still get a row —
+    Snapshots whose probe failed entirely (no scheme worked) still get a row -
     the absence of evidence is itself evidence. Classification will skip them.
     """
     captured = 0
@@ -39,7 +39,7 @@ def enrich_pending() -> dict[str, int]:
                 "screenshot_path": None,
                 "html_path": None,
                 "final_url": None,
-                "error": "skipped — probe failed",
+                "error": "skipped - probe failed",
             }
             if probe_result["error"] is None:
                 out_dir = settings.snapshots_dir / str(candidate.id)

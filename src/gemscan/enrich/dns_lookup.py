@@ -1,4 +1,4 @@
-"""Resolve a domain's A/AAAA/NS/MX records — used to identify shared hosting infrastructure."""
+"""Resolve a domain's A/AAAA/NS/MX records - used to identify shared hosting infrastructure."""
 
 
 def lookup(domain: str) -> dict:

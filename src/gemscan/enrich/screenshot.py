@@ -15,12 +15,12 @@ def capture(url: str, out_dir: Path) -> dict:
 
     Writes `desktop.png` (full-page screenshot) and `dom.html` (rendered HTML
     after JS runs) into `out_dir`. The caller is responsible for choosing the
-    URL — typically the `final_url` returned by `http_probe.probe()`.
+    URL - typically the `final_url` returned by `http_probe.probe()`.
 
     Returns:
         screenshot_path: str | None
         html_path: str | None
-        final_url: str | None  — `page.url` after JS-driven redirects (may
+        final_url: str | None  - `page.url` after JS-driven redirects (may
             differ from the input URL if the page itself navigates)
         error: str | None
     """
@@ -49,7 +49,7 @@ def capture(url: str, out_dir: Path) -> dict:
                 return _failure(f"goto failed: {type(e).__name__}: {e}")
 
             # Best-effort: let JS settle. Most SPAs render in <2s but stragglers
-            # can keep XHRing forever — don't fail the capture over that.
+            # can keep XHRing forever - don't fail the capture over that.
             try:
                 page.wait_for_load_state(
                     "networkidle",
@@ -66,7 +66,7 @@ def capture(url: str, out_dir: Path) -> dict:
 
             # Chromium can land on about:blank#blocked, chrome-error://..., etc.
             # when Safe Browsing or a renderer crash interrupts navigation.
-            # Those pseudo-URLs are useless for downstream evidence — fall back
+            # Those pseudo-URLs are useless for downstream evidence - fall back
             # to what we asked it to load.
             final_url = page.url
             if final_url.startswith(("about:", "chrome-error:")) or not final_url:

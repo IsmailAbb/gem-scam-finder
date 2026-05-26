@@ -22,7 +22,7 @@ This project aims to be that database, plus the tooling to keep it current.
    feeds             screenshot                                                  hosts, ad nets
 ```
 
-State flows through SQLite. Each stage adds rows, never mutates earlier ones — you keep a full audit trail of why each site was flagged.
+State flows through SQLite. Each stage adds rows, never mutates earlier ones - you keep a full audit trail of why each site was flagged.
 
 ## Setup
 
@@ -57,7 +57,7 @@ uv run gemscan serve           # run the web UI on http://127.0.0.1:8000  (stub)
 
 ```
 src/gemscan/
-├── cli.py            # Typer entry point — `gemscan <command>`
+├── cli.py            # Typer entry point - `gemscan <command>`
 ├── settings.py       # env / config loader
 ├── db/               # SQLAlchemy models + session
 ├── discovery/        # find candidate domains
@@ -71,7 +71,7 @@ config/
 ├── targets.yaml      # canonical GEM domains to protect
 └── rubric.md         # the classification rubric (prose, edited by hand)
 
-data/                 # gitignored — SQLite DB + screenshots
+data/                 # gitignored - SQLite DB + screenshots
 tests/                # pytest tests + recorded fixtures
 ```
 
@@ -80,8 +80,8 @@ tests/                # pytest tests + recorded fixtures
 - This project publishes accusations of fraud against specific domains. Every published entry must be backed by a saved evidence snapshot (screenshot + DOM + WHOIS) and a human review decision.
 - Entries are framed as **indicators of suspected impersonation**, not legal conclusions. A "report a mistake" channel is provided.
 - Scraping is limited to publicly accessible content. No credentials, no exploitation, no PII submission.
-- Abuse reports are filed through standard registrar/host/ad-network channels — the same mechanisms anyone can use.
+- Abuse reports are filed through standard registrar/host/ad-network channels - the same mechanisms anyone can use.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).

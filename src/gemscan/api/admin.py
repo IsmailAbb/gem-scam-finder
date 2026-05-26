@@ -1,4 +1,4 @@
-"""Admin routes — basic-auth gated. Review queue, publish, file reports."""
+"""Admin routes - basic-auth gated. Review queue, publish, file reports."""
 
 import secrets
 
@@ -29,7 +29,7 @@ def review_queue(_: str = Depends(require_admin)) -> dict:
     TODO: render an HTML page that shows screenshot, side-by-side with canonical,
     WHOIS, heuristics, LLM rationale, and confirm/reject/recapture buttons.
     """
-    return {"status": "scaffolding — not implemented yet"}
+    return {"status": "scaffolding - not implemented yet"}
 
 
 @router.post("/publish/{candidate_id}")
@@ -38,4 +38,4 @@ def publish(candidate_id: int, _: str = Depends(require_admin)) -> dict:
 
     TODO: insert PublishedEntry row referencing the evidence snapshot.
     """
-    return {"candidate_id": candidate_id, "status": "scaffolding — not implemented yet"}
+    return {"candidate_id": candidate_id, "status": "scaffolding - not implemented yet"}

@@ -23,7 +23,7 @@ class Target(Base):
 
 
 class Candidate(Base):
-    """A domain discovered by any source — may or may not turn out to be a scam."""
+    """A domain discovered by any source - may or may not turn out to be a scam."""
 
     __tablename__ = "candidates"
 
@@ -40,7 +40,7 @@ class Candidate(Base):
 
 
 class Snapshot(Base):
-    """One capture of a candidate at a point in time — the evidence record."""
+    """One capture of a candidate at a point in time - the evidence record."""
 
     __tablename__ = "snapshots"
 
@@ -78,7 +78,7 @@ class Classification(Base):
 
 
 class ReviewDecision(Base):
-    """A human verdict — overrides the LLM when present."""
+    """A human verdict - overrides the LLM when present."""
 
     __tablename__ = "review_decisions"
 

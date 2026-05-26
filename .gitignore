@@ -67,5 +67,5 @@ test-results/
 .DS_Store
 Thumbs.db
 
-# Claude Code — local per-machine settings (keep .claude/settings.json committable for shared config)
+# Claude Code - local per-machine settings (keep .claude/settings.json committable for shared config)
 .claude/settings.local.json

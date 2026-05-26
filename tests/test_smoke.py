@@ -1,4 +1,4 @@
-"""Smoke tests — verify the scaffold imports cleanly and the CLI is registered."""
+"""Smoke tests - verify the scaffold imports cleanly and the CLI is registered."""
 
 from typer.testing import CliRunner
 
